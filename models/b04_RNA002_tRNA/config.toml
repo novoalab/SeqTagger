@@ -1,0 +1,50 @@
+[model]
+package = "bonito.crf"
+
+[labels]
+labels = [ "N", "A", "C", "G", "T",]
+
+[input]
+features = 1
+
+[qscore]
+scale = 0.0
+bias = 1.0
+
+[encoder]
+winlen = 31
+stride = 10
+scale = 5.0
+features = 96
+rnn_type = "lstm"
+activation = "swish"
+blank_score = 2.0
+
+[global_norm]
+state_len = 4
+
+[basecaller]
+batchsize = 256
+chunksize = 3000
+overlap = 500
+
+[training]
+command = "train"
+training_directory = "models/demux_tRNA_b04_RNA002.3000.90000.fast"
+config = "models/configs/rna_r9.4.1_fast@v3.3.toml"
+pretrained = ""
+directory = "PosixPath('data/demux_tRNA_b04_RNA002.3000.90000')"
+device = "cuda"
+lr = "2e-3"
+seed = 25
+epochs = 75
+batch = 128
+chunks = 0
+no_amp = false
+force = false
+restore_optim = false
+nondeterministic = false
+save_optim_every = 10
+grad_accum_split = 1
+quantile_grad_clip = false
+func = "<function main at 0x2af7220d3eb0>"
