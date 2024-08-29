@@ -1,0 +1,402 @@
+---
+title: "Comparative analysis of demultiplexing algorithms"
+author: "Gregor Diensthuber"
+date: "`r Sys.Date()`"
+output: openintro::lab_report
+---
+
+```{r load-packages, message=FALSE}
+
+# Load Rmd requirements
+
+library(openintro)
+library(tidyverse)
+
+# Load go-to packages for data-import,wrangling and visualisation
+
+pkgs <- c("backports","here","skimr","dplyr", "ggplot2", "ggsci","ggforce","rstatix",
+          "janitor","readxl", "MetBrewer","ggrepel", "usethis", "ggpubr", "ggridges", "MoMAColors")
+
+invisible(lapply(pkgs, require, character.only = TRUE))
+
+```
+
+## Model performance comparison
+
+We compared SeqTagger default settings with DeePlexiCon using either high precision (-s 0.9) or high recall (-s 0.5) and determined precision and recall achieved on an indepdendent test dataset.
+
+```{r load_precision_recall, message=FALSE}
+
+# Read Raw Data from google sheets
+
+library(googlesheets4)
+
+data <- read_sheet("https://docs.google.com/spreadsheets/d/10trp93P-sbLgwLTOdYlstJ6RXL-w6J_JPDCvrkfo1m4/edit?usp=sharing", sheet = 6)
+
+
+```
+
+```{r plot_precision_recall}
+
+# Generate custom theme
+
+t <- theme(
+  legend.title = element_blank(),
+  legend.text = element_text( size = 10),
+  legend.position = "bottom",
+  axis.text = element_text(size=10),
+  axis.title = element_text(size=15),
+  axis.text.x = element_text(size=10),
+  panel.grid.major.x = element_line(color = "grey90"),
+  panel.grid.minor.x = element_line(color = "grey90"),
+  strip.text.x = element_text(size = 10, face = "bold"),
+  panel.border = element_rect(colour = "black", fill = NA),
+)
+
+# Plot Precision Recall as Bar Plots
+
+plot_precision_recall <- function(df, params) {
+  
+  data$software <- factor(data$software, levels = c("SeqTagger",  "DeePlexicon_s0.9","DeePlexicon_s0.5"))
+  ## check if input is valid
+  if (!params %in% data$parameter) stop("Parameter not listed")
+  ## Plotting function
+  df %>% 
+  filter(parameter == params) %>% 
+  ggplot(aes(x = software, y = value, fill = software)) +
+  geom_bar(stat = "summary", width = 0.7, fun = mean) +
+  stat_summary(aes(color = software),fun.data = "mean_sd", geom = "errorbar", width = 0.3) +
+  geom_point(aes(x = software, y = value), size=2, shape = 21,
+             color = "black",
+             position = position_jitter(width = 0.25),
+             show.legend = F) +
+  
+  scale_y_continuous(limits = c(0,1),
+                     expand = c(0, 0),
+                     labels = scales::percent) +
+    
+  scale_fill_manual(values = c("SeqTagger" = "#6AAC9E", "DeePlexicon_s0.5" = "#A55CA0", "DeePlexicon_s0.9" = "#441A45")) +
+  scale_color_manual(values = c("SeqTagger" = "#6AAC9E", "DeePlexicon_s0.5" = "#A55CA0", "DeePlexicon_s0.9" = "#441A45")) +
+  
+  coord_flip(ylim = c(0.70, 1.025)) +
+  
+  labs(x= "", y = "", title = params) +
+  theme_pubr() + t
+  
+}
+
+plot_precision_recall(df = data, params = "precision")
+
+plot_precision_recall(df = data, params = "recall")
+
+
+```
+
+SeqTagger outperforms both DeepLexiCon settings on an independent test dataset. It achieves high precision (99%) and recall (95%) on our test dataset.
+
+## System performance comparison
+
+Currently, demultiplexing of DRS data poses a challenge as it is computationally expensive and requires GPUs to run efficiently. We recorded severeal system performance parameters to compare SeqTagger with existing demultiplexing software.
+
+```{r load_system_performance, message=FALSE}
+
+# Read Raw Data from google sheets
+
+library(googlesheets4)
+
+data <- read_sheet("https://docs.google.com/spreadsheets/d/10trp93P-sbLgwLTOdYlstJ6RXL-w6J_JPDCvrkfo1m4/edit?usp=sharing", sheet = 2)
+
+
+```
+
+```{r data_wrangling_system_performance, message=FALSE}
+
+##########################
+#### 2: Data Wrangling ###
+##########################
+
+# Task 2.1 Convert string time with XX h XX m XX s to numeric minutes
+
+# Function to convert time format to minutes
+convert_time_to_minutes <- function(time_string) {
+  # Extract hours, minutes, and seconds using regular expressions
+  hours_match <- regexec("(\\d+)\\s*h", time_string)
+  minutes_match <- regexec("(\\d+)\\s*m", time_string)
+  seconds_match <- regexec("(\\d+)\\s*s", time_string)
+  
+  # Extract hours, minutes, and seconds if present
+  hours <- ifelse(length(hours_match[[1]]) > 1, as.numeric(regmatches(time_string, hours_match)[[1]][2]), 0)
+  minutes <- ifelse(length(minutes_match[[1]]) > 1, as.numeric(regmatches(time_string, minutes_match)[[1]][2]), 0)
+  seconds <- ifelse(length(seconds_match[[1]]) > 1, as.numeric(regmatches(time_string, seconds_match)[[1]][2]), 0)
+  
+  # Convert to minutes
+  total_minutes <- hours * 60 + minutes + seconds / 60
+  return(total_minutes)
+}
+
+# Apply the function to the raw
+processed <- data
+
+processed$duration <- sapply(processed$duration, convert_time_to_minutes)
+processed$realtime <- sapply(processed$realtime, convert_time_to_minutes)
+
+
+# Task 2.2: Convert character columns to the correct numerics
+
+processed <- processed %>%
+  mutate(`peak_rss (GB)` = `peak_rss (GB)` %>% str_replace_all("[^0-9.]", "")%>% as.numeric(),
+         `peak_vmem (GB)` = `peak_vmem (GB)` %>% str_replace_all("[^0-9.]", "") %>% as.numeric(),
+         `rchar (GB)` = `rchar (GB)` %>% str_replace_all("[^0-9.]", "") %>% as.numeric(),
+         `wchar (MB)` = `wchar (MB)` %>% str_replace_all("[^0-9.]", "") %>% as.numeric(),
+  )
+
+# Task 2.3: Convert to long
+
+processed_long <- processed %>% 
+  select(ID:task_id, realtime, `% cpu`,`peak_rss (GB)`,`peak_vmem (GB)`) %>% 
+  pivot_longer(cols = realtime:`peak_vmem (GB)`,
+               names_to = "parameter",
+               values_to = "minutes")
+
+
+# Task 2.4: Perform statistical analysis (two-sided t-test corrected for multiple hypothesis testing)
+
+stat.test <- processed_long %>%
+  group_by(parameter) %>% 
+  t_test(minutes ~ ID) %>% 
+  adjust_pvalue(method = "hochberg") %>%
+  add_significance("p.adj")
+
+stat.test
+
+### Add x.y position for plotting
+
+stat.test <- stat.test %>%
+  add_xy_position(x = "ID", step.increase = 0.2)
+stat.test$y.position <- stat.test$y.position
+
+
+```
+
+```{r data_viz_system_performance, message=FALSE}
+
+##################
+### Data - Viz ###
+##################
+
+### Specify a custom theme
+
+t <- theme(
+  legend.title = element_blank(),
+  legend.text = element_text( size = 15),
+  legend.position = "bottom",
+  axis.text = element_text(size=15),
+  axis.title=element_text(size=15),
+  panel.grid.major.x = element_line(color = "grey90"),
+  panel.grid.minor.x = element_line(color = "grey90"),
+  panel.border = element_rect(colour = "black", fill = NA),
+  strip.text.x = element_text(size = 15, face = "bold")
+)
+
+
+#######################
+##  Plot parameters ##
+######################
+
+# Set plotting order
+
+processed$ID <- factor(processed$ID, levels = c( "SeqTagger","DeePlexiCon" ))
+processed$replicate <- factor(processed$replicate, levels = c( "1", "2", "3"))
+
+plot_system_metrics <- function(df, params, ylab){
+  
+  ## check if input is valid
+  if (!params %in% df$parameter) stop("Parameter not listed")
+  
+  df %>% 
+    filter(parameter == params) %>% 
+    
+    ggplot(aes(x = ID, y = minutes)) +
+    geom_bar(aes(fill = ID),stat = "summary", fun = "mean", width=0.9) +
+    
+    stat_summary(aes(color = ID),fun.data = "mean_sd", geom = "errorbar", width=.35) +
+    
+    geom_point(aes(x = ID, y = minutes, fill = ID), size=4, shape = 21,
+             color = "black",
+             position=position_jitter(height = 0.33),
+             show.legend = F) +
+  
+  stat_pvalue_manual(stat.test %>%  filter(parameter == params),  label = "p.adj.signif", tip.length = .02, size = 3, coord.flip = T) +
+  
+  scale_fill_manual(values = c('DeePlexiCon' = '#A55CA0', 'SeqTagger' = '#6AAC9E')) +
+  scale_color_manual(values = c('DeePlexiCon' = '#A55CA0', 'SeqTagger' = '#6AAC9E')) +
+  
+  labs(x= "", y = ylab, title = params) +
+  
+  coord_flip() +
+  theme_pubr() + t
+  
+  
+  
+}
+
+
+plot_system_metrics(processed_long, "realtime", "Computation-Time [minutes/1e5 reads]")
+
+plot_system_metrics(processed_long, "% cpu", "CPU usage [%/1e5 reads]")
+
+plot_system_metrics(processed_long, "peak_rss (GB)", "Peak RSS [GB/1e5 reads]")
+
+plot_system_metrics(processed_long, "peak_vmem (GB)", "Peak vMEM [GB/1e5 reads]")
+
+```
+These results suggest that SeqTagger is computationally more efficient than current demlutplexing software. We observe a ~9-fold reduction in computation-time using a single GPU (running CUDA 10) with 1 CPU allocated (12 GB). Taken together these results suggest that SeqTagger is better suited for large-datasets expected with newere RNA chemistries (RNA004).
+
+## Relative contribution workflows to DRS preprocessing
+
+Demultiplexing is not a process usually run in a standalone manner. It is generally coupled to other steps considered data preprocessing such as basecalling, mapping, counting (optional) and QC. We wanted to investigate the relative contribution of these processes to determine whether the speed-up observed for demultiplexing also implies a substantial speed-up in the overall data processing pipeline. These results refere to statsitics observed when running the `mop_preprocess` workflow, which is part of the [Master of Pores 3](https://github.com/biocorecrg/MoP3) nextflow pipeline for the analysis of DRS-data.
+
+```{r load_relative_100k, message=FALSE}
+
+# Read Raw Data from google sheets
+
+library(googlesheets4)
+
+data_benchmark <- read_sheet("https://docs.google.com/spreadsheets/d/10trp93P-sbLgwLTOdYlstJ6RXL-w6J_JPDCvrkfo1m4/edit?usp=sharing", sheet = 4)
+
+# Second benchmarking dataset on real-life data (poly-(A)-selected mouse sample)
+
+data_mouse <- read_sheet("https://docs.google.com/spreadsheets/d/10trp93P-sbLgwLTOdYlstJ6RXL-w6J_JPDCvrkfo1m4/edit?usp=sharing", sheet = 5)
+
+```
+
+```{r data_wrangling_relative_100k, message=FALSE}
+
+# Apply the function to the raw
+
+data_benchmark_process <- data_benchmark
+
+data_mouse_process <- data_mouse
+
+data_benchmark_process$realtime <- sapply(data_benchmark_process$realtime, convert_time_to_minutes)
+data_mouse_process$realtime <- sapply(data_mouse_process$realtime, convert_time_to_minutes)
+
+
+# Calculate Relative Contribution
+
+calc_rel <- function(df){
+  
+  df <- df %>% 
+  select(software,worklfow,realtime) %>% 
+  group_by(software, worklfow) %>% 
+  summarize(sum_realtime = sum(realtime)) %>% 
+  ungroup() %>% 
+  group_by(software) %>% 
+  mutate(percent_realtime = (sum_realtime/sum(sum_realtime)*100))
+  
+  return(df)
+  
+}
+
+data_benchmark_process_sum <- calc_rel(data_benchmark_process)
+
+data_mouse_process_sum <- calc_rel(data_mouse_process)
+
+
+```
+
+```{r data_viz_relative_, message=FALSE}
+
+##################
+### Data - Viz ###
+##################
+
+### Specify a custom theme
+
+t <- theme(
+  legend.title = element_blank(),
+  legend.text = element_text( size = 15),
+  legend.position = "bottom", 
+  axis.text = element_text(size=15),
+  axis.title=element_text(size=15),
+  axis.text.x = element_text(),
+  panel.grid.major.x = element_line(color = "grey90"),
+  panel.grid.minor.x = element_line(color = "grey90"),
+  strip.text.x = element_text(size = 15, face = "bold"),
+  panel.border = element_rect(colour = "black", fill = NA),
+)
+
+### Set colors
+
+library(MoMAColors)
+
+data_benchmark_process_sum %>% 
+  ggplot(aes(x = software, y = sum_realtime, fill = worklfow)) +
+  geom_bar(position="fill", stat="identity") +
+  scale_fill_moma_d(palette_name = "vonHeyl") +
+  scale_y_continuous(expand = c(0.01,0.01),
+                     labels = scales::percent) +
+  labs(x = "", y = "Relative Real-Time") +
+  theme_pubr() + t +
+  coord_flip()
+
+
+plot_relative_contriubtion <- function(df, header){
+  
+  # Specify plotting order
+  
+  df$worklfow <- factor(df$worklfow, levels = c("demultiplexing","basecalling","mapping","counting","processing","QC"))
+  df$software <- factor(df$software, levels = c("SeqTagger","DeePlexiCon"))
+  
+  # Plot Stacked barchart
+  
+  df %>% 
+  ggplot(aes(x = software, y = sum_realtime, fill = worklfow)) +
+  geom_bar(position="fill", stat="identity") +
+  scale_fill_moma_d(palette_name = "vonHeyl") +
+  scale_y_continuous(expand = c(0.01,0.01),
+                     labels = scales::percent) +
+  labs(x = "", y = "Computation-Time [min/1e5 reads]", title = paste0("Absolute contribtion per workflow on ", header)) +
+  theme_pubr() + t +
+  coord_flip()
+  
+  
+}
+
+plot_absolute_contriubtion <- function(df, header){
+  
+  # Specify plotting order
+  
+  df$worklfow <- factor(df$worklfow, levels = c("demultiplexing","basecalling","mapping","counting","processing","QC"))
+  df$software <- factor(df$software, levels = c("SeqTagger","DeePlexiCon"))
+  
+  # Plot Stacked barchart
+  
+  df %>% 
+  ggplot(aes(x = software, y = sum_realtime, fill = worklfow)) +
+  geom_bar(position="stack", stat="identity") +
+  scale_fill_moma_d(palette_name = "vonHeyl") +
+  scale_y_continuous(expand = c(0.01,0.01)) +
+  labs(x = "", y = "Computation-Time [min/1e5 reads]", title = paste0("Absolute contribtion per workflow on ", header))  +
+  theme_pubr() + t +
+  coord_flip()
+  
+  
+}
+
+plot_relative_contriubtion(data_benchmark_process_sum, "IVT benchmarking dataset")
+
+plot_absolute_contriubtion(data_benchmark_process_sum, "IVT benchmarking dataset")
+
+
+```
+Theses results demonstrate that the speed-up achieved via using SeqTagger removes a previous computational bottleneck taking up > 50% of the processing time. Therefore, SeqTagger represents a significant improvement over current tools. However, these results were generated on a dataset consisting of four sequences causing mapping to be heavily underestimated. To account for this we also performed the analysis on a more 'real-life' example consisting of 100,000 reads that were sampled from a MinION run on mouse poly-(A)-selected material. 
+
+```{r plot_mouse_relative_comparison, message=FALSE}
+
+plot_relative_contriubtion(data_mouse_process_sum, "Poly-A-selected mouse sample")
+
+plot_absolute_contriubtion(data_mouse_process_sum, "Poly-A-selected mouse sample")
+
+```
+This data suggest that even when other processed are considered demultiplexing poses the main computational bottleneck. As as results once this process is speed-up, using SeqTagger, the processing time of the entire pipeline is reduced significanty.
