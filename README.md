@@ -35,7 +35,7 @@ Please note: These models do not work well on Nano-tRNAseq libraries. **tRNA** m
 ### Does it work on all RNA types?
 Yes, as long as the RNA molecule has a poly(A) tail (e.g. mRNAs, lncRNAs, etc.) or you have in vitro polyadenylated the sample prior to sequencing.
 
-**Please note**: NanotRNAseq libraries cannot be directly demuxed using this version of SeqTagger, because the adapter sequences have RNA-DNA hybrids. To demultiplex Nano-tRNAseq libraries please use the SeqTagger Dockerfile available [here](https://immaginabiotech.com/nano-trnaseq) with pre-trained models to demultiplex tRNAs.
+**Please note**: NanotRNAseq libraries cannot be directly demuxed using this version of SeqTagger, because the adapter sequences have RNA-DNA hybrids. **To demultiplex Nano-tRNAseq libraries please use the SeqTagger Dockerfile** available [here](https://immaginabiotech.com/nano-trnaseq) with pre-trained models to demultiplex tRNAs.
 
 
 ## Running SeqTagger
