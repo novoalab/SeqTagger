@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [About-SeqTagger](#About-SeqTagger)
-  - [What is SeqTagger?](#What-is-SeqTagger?)
+  - [What is SeqTagger?](#What-is-SeqTagger)
   - [How does SeqTagger work?](#How-does-SeqTagger-work?)
   - [How many barcodes are supported?](#How-many-barcodes-are-supported?)
   - [Does it work on all RNA types?](#Does-it-work-on-all-RNA-types?)
