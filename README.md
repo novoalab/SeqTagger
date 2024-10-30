@@ -32,7 +32,7 @@ Currently, SeqTagger supports the following models and barcodes:
 | RNA004 | 4 | b04_RNA004 |  [b04_RNA004_barcodes](/models/b04_RNA002/barcodes.tsv)|
 
 
-**Please note:** These models do not work well on Nano-tRNAseq libraries. You can find **tRNA** demultiplexing models for **RNA002** and **RNA004** chemistries, together with SeqTagger Dockerfiles [here](https://www.immaginabiotech.com/services/nano-trnaseq).
+**Please note:** These models do not work well on Nano-tRNAseq libraries. You can find SeqTagger Dockerfiles with pre-trained **tRNA** demultiplexing models [here](https://www.immaginabiotech.com/services/nano-trnaseq).
 
 
 ### Does it work on all RNA types?
