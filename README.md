@@ -28,13 +28,13 @@ Currently, SeqTagger supports the following models and barcodes:
 | RNA004 | 4 | b04_RNA004 |  [b04_RNA004_barcodes](/models/b04_RNA002/barcodes.tsv)|
 
 
-Please note: These models do not work well on Nano-tRNAseq libraries, because the Nano-tRNAseq adapters are RNA-DNA hybrids. **tRNA** models for **RNA002** and **RNA004** chemistries, together with SeqTagger Dockerfiles, are available via [Immagina Biotechnology](https://www.immaginabiotech.com/services/nano-trnaseq) website.
+**Please note:** These models do not work well on Nano-tRNAseq libraries. You can find **tRNA** demultiplexing models for **RNA002** and **RNA004** chemistries, together with SeqTagger Dockerfiles via [Immagina Biotechnology](https://www.immaginabiotech.com/services/nano-trnaseq) website.
 
 
 ### Does it work on all RNA types?
 Yes, as long as the RNA molecule has a poly(A) tail (e.g. mRNAs, lncRNAs, etc.) or you have in vitro polyadenylated the sample prior to sequencing.
 
-**Please note**: NanotRNAseq libraries cannot be directly demuxed using this version of SeqTagger. SeqTagger Dockerfiles are available with pre-trained models to demultiplex tRNAs are available [here](https://immaginabiotech.com/nano-trnaseq).
+**Please note**: These models do not work well on Nano-tRNAseq libraries. SeqTagger Dockerfiles are available with pre-trained models to demultiplex tRNAs are available [here](https://immaginabiotech.com/nano-trnaseq).
 
 
 ## Running SeqTagger
