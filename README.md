@@ -136,7 +136,6 @@ Versions tested:
 
 ## Citation
 
-Pryszcz LP, Diensthuber G, Medina R, Llovera L, Liu H, Delgado-Tejedor A, Cozzuto L and Novoa EM.
-**SeqTagger: a rapid and accurate tool to demultiplex direct RNA nanopore sequencing datasets**.
-In preparation. 
+Pryszcz LP*, Diensthuber G*, Llovera L,  Medina R, Delgado-Tejedor A, Cozzuto L, Ponomarenko J and Novoa EM#.
+**SeqTagger, a rapid and accurate tool to demultiplex direct RNA nanopore sequencing datasets**. bioRxiv 2024 (under review) 
 
