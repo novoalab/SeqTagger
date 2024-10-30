@@ -2,6 +2,10 @@
 
 ## Table of Contents
 - [About-SeqTagger](#About-SeqTagger)
+  - [What is SeqTagger?](#What-is-SeqTagger?)
+  - [How does SeqTagger work?](#How-does-SeqTagger-work?)
+  - [How many barcodes are supported?](#How-many-barcodes-are-supported?)
+  - [Does it work on all RNA types?](#Does-it-work-on-all-RNA-types?)
 - [Running SeqTagger](#Running-SeqTagger)
   - [Split reads by barcode](#Split-reads-by-barcode)
 - [Dependencies and versions](#Dependencies-and-versions)
@@ -18,7 +22,7 @@ The workflow follows the standard direct RNA sequencing library preparation prot
 
 ![alt text](./img/workflow.png "SeqTagger_Workflow")
 
-## How many barcodes are supported?
+### How many barcodes are supported?
 Currently, SeqTagger supports the following models and barcodes:
 
 | Chemistry | Number of barcodes | SeqTagger Model | Barcode Sequences | 
