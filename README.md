@@ -22,15 +22,14 @@ The workflow follows the standard direct RNA sequencing library preparation prot
 Currently, SeqTagger supports the following models and barcodes:
 
 
-| Chemistry | SeqTagger Model | Barcode Sequences | 
-| ----------- | ----------- |----------- |
-| RNA002 | b04_RNA002 | [b04_RNA002_barcodes](/models/b04_RNA002/barcodes.tsv)|
-| RNA002 | b04_RNA002_tRNA | [b04_RNA002_barcodes](/models/b04_RNA002_tRNA/barcodes.tsv)|
-| RNA002 | b96_RNA002 | [b96_RNA002_barcodes](/models/b96_RNA002/barcodes.tsv)|
-| RNA004 | b04_RNA004 |  [b04_RNA004_barcodes](/models/b04_RNA002/barcodes.tsv)|
+| Chemistry | Number of barcodes | SeqTagger Model | Barcode Sequences | 
+| -----------| ----------- | ----------- |----------- |
+| RNA002 | 4 | b04_RNA002 | [b04_RNA002_barcodes](/models/b04_RNA002/barcodes.tsv)|
+| RNA002 | 96 | b96_RNA002 | [b96_RNA002_barcodes](/models/b96_RNA002/barcodes.tsv)|
+| RNA004 | 4 | b04_RNA004 |  [b04_RNA004_barcodes](/models/b04_RNA002/barcodes.tsv)|
 
 
-Please note: **tRNA** models for **RNA004** chemistry (up to 7 barcodes) are available via [Immagina Biotechnology](https://www.immaginabiotech.com/services/nano-trnaseq) website.
+Please note: These models do not work well on Nano-tRNAseq libraries. **tRNA** models for **RNA002** and **RNA004** chemistries are available via [Immagina Biotechnology](https://www.immaginabiotech.com/services/nano-trnaseq) website.
 
 
 ### Does it work on all RNA types?
