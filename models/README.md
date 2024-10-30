@@ -7,11 +7,12 @@
 
 Currently, SeqTagger supports the following models and barcodes:
 
-| SeqTagger Model | Barcode Sequences | 
+| Chemistry | SeqTagger Model | Barcode Sequences | 
 | ----------- | ----------- |
-| b04_RNA002 | [/models/b04_RNA002/barcodes.tsv](/models/b04_RNA002/barcodes.tsv)|
-| b04_RNA002_tRNA | [/models/b04_RNA002_tRNA/barcodes.tsv](/models/b04_RNA002_tRNA/barcodes.tsv)|
-| b04_RNA004 | [/models/b04_RNA002/barcodes.tsv](/models/b04_RNA002/barcodes.tsv)|
-| b96_RNA002 | [/models/b96_RNA002/barcodes.tsv](/models/b96_RNA002/barcodes.tsv)|
+| RNA002 | b04_RNA002 | [b04_RNA002_barcodes](/models/b04_RNA002/barcodes.tsv)|
+| RNA002 | b04_RNA002_tRNA | [b04_RNA002_barcodes](/models/b04_RNA002_tRNA/barcodes.tsv)|
+| RNA002 | b96_RNA002 | [b96_RNA002_barcodes.tsv](/models/b96_RNA002/barcodes.tsv)|
+| RNA004 | b04_RNA004 |  [b04_RNA004_barcodes](/models/b04_RNA002/barcodes.tsv)|
 
-Please note: **tRNA** models for **RNA004** chemistry are available via [Immagina Biotechnology](https://www.immaginabiotech.com/services/nano-trnaseq).
+
+Please note: **tRNA** models for **RNA004** chemistry (up to 7 barcodes) are available via [Immagina Biotechnology](https://www.immaginabiotech.com/services/nano-trnaseq).
