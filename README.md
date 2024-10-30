@@ -21,12 +21,16 @@ The workflow follows the standard direct RNA sequencing library preparation prot
 ### How many barcodes are supported?
 Currently, SeqTagger supports the following models and barcodes:
 
-| SeqTagger Model | Barcode Sequences | 
-| ----------- | ----------- |
-| b04_RNA002 | [/models/b04_RNA002/barcodes.tsv](/models/b04_RNA002/barcodes.tsv)|
-| b04_RNA002_tRNA | [/models/b04_RNA002_tRNA/barcodes.tsv](/models/b04_RNA002_tRNA/barcodes.tsv)|
-| b04_RNA004 | [/models/b04_RNA002/barcodes.tsv](/models/b04_RNA002/barcodes.tsv)|
-| b96_RNA002 | [/models/b96_RNA002/barcodes.tsv](/models/b96_RNA002/barcodes.tsv)|
+
+| Chemistry | SeqTagger Model | Barcode Sequences | 
+| ----------- | ----------- |----------- |
+| RNA002 | b04_RNA002 | [b04_RNA002_barcodes](/models/b04_RNA002/barcodes.tsv)|
+| RNA002 | b04_RNA002_tRNA | [b04_RNA002_barcodes](/models/b04_RNA002_tRNA/barcodes.tsv)|
+| RNA002 | b96_RNA002 | [b96_RNA002_barcodes](/models/b96_RNA002/barcodes.tsv)|
+| RNA004 | b04_RNA004 |  [b04_RNA004_barcodes](/models/b04_RNA002/barcodes.tsv)|
+
+
+Please note: **tRNA** models for **RNA004** chemistry (up to 7 barcodes) are available via [Immagina Biotechnology]  (https://www.immaginabiotech.com/services/nano-trnaseq) website.
 
 
 ### Does it work on all RNA types?
