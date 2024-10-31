@@ -22,6 +22,10 @@ The workflow follows the standard direct RNA sequencing library preparation prot
 
 ![alt text](./img/workflow.png "SeqTagger_Workflow")
 
+![Docker Pulls](https://img.shields.io/docker/pulls/lpryszcz/seqtagger?logo=docker)
+[![DOI:10.1101/2024.10.29.620808](http://img.shields.io/badge/DOI-10.1101/2024.10.29.620808-blue.svg)](https://doi.org/10.1101/2024.10.29.620808)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-lightgrey.svg)](https://github.com/novoalab/SeqTagger/blob/main/COPYING)
+
 ### How many barcodes are supported?
 Currently, SeqTagger supports the following models and barcodes:
 
@@ -135,7 +139,8 @@ Versions tested:
 | Nvidia Container Toolkit | 1.14 | 
 
 ## Citation
+If you found this work helpful, please cite:
 
 Pryszcz LP*, Diensthuber G*, Llovera L,  Medina R, Delgado-Tejedor A, Cozzuto L, Ponomarenko J and Novoa EM#.
-**SeqTagger, a rapid and accurate tool to demultiplex direct RNA nanopore sequencing datasets**. bioRxiv 2024 (under review) 
+**SeqTagger, a rapid and accurate tool to demultiplex direct RNA nanopore sequencing datasets**. bioRxiv 2024 doi:[https://www.biorxiv.org/content/10.1101/2024.10.29.620808] 
 
