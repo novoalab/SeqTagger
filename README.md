@@ -1,6 +1,7 @@
 ![alt text](./img/logo.png "SeqTagger")
 ![Docker Pulls](https://img.shields.io/docker/pulls/lpryszcz/seqtagger?logo=docker)
 [![DOI:10.1101/2024.10.29.620808](http://img.shields.io/badge/DOI-10.1101/2024.10.29.620808-blue.svg)](https://doi.org/10.1101/2024.10.29.620808)
+[![X Account](https://img.shields.io/badge/@novoalab-blue?logo=x&logoColor=white&labelColor=555)](https://x.com/novoalab?lang=en)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-lightgrey.svg)](https://github.com/novoalab/SeqTagger/blob/main/COPYING)
 
 ## Table of Contents
