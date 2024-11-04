@@ -72,7 +72,7 @@ seqtagger mRNA -k models/b04_RNA004 -r -i /data/test_data/RNA004 -o /data/demux
 Note, you can provide multiple input directories with fast5/pod5 files after `-i`. 
 
 Results will be saved in tab-delimited files (gzip-compressed): 
-- `demux/RNA004.demux.tsv.gz`
+`demux/RNA004.demux.tsv.gz`
 
 In addition, boxplots of per-barcode quality will be saved in corresponding directory
 ending with `.boxplot.pdf`. 
