@@ -13,6 +13,7 @@
 - [Running SeqTagger](#Running-SeqTagger)
   - [Split reads by barcode](#Split-reads-by-barcode)
 - [Dependencies and versions](#Dependencies-and-versions)
+- [License Information](#License-information)
 - [Citation](#Citation)
 
 ## About SeqTagger
@@ -119,6 +120,9 @@ seqtagger bam_split_by_barcode.py -i /data/demux/run1.demux.tsv.gz -f /data/run1
 
 This will save one BAM file for each barcode named as
 `run1.mapped.bc_?.bam` where `?` represents the barcode number.
+
+## License Information
+
 
 
 ## Dependencies and versions
