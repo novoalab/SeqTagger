@@ -121,17 +121,6 @@ seqtagger bam_split_by_barcode.py -i /data/demux/run1.demux.tsv.gz -f /data/run1
 This will save one BAM file for each barcode named as
 `run1.mapped.bc_?.bam` where `?` represents the barcode number.
 
-## License information
-
-### Dependencies' Licenses
-
-* [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/): `pod5` `ont-fast5-api`
-* [BSD](https://github.com/joblib/joblib/blob/master/LICENSE.txt): `joblib`
-* [BSD-3-Clause](https://github.com/pandas-dev/pandas/blob/main/LICENSE): `pandas` `seaborn`
-* [MIT](https://opensource.org/license/mit): `mappy` `pysam`
-
-### Patent 
-LPP, GD and EMN have filed patents on the SeqTagger demultiplexing algorithm and method (application EP24382340) and an extension thereof (application EP24383144).
 
 ## Dependencies and versions
 
