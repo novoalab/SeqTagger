@@ -121,6 +121,23 @@ seqtagger bam_split_by_barcode.py -i /data/demux/run1.demux.tsv.gz -f /data/run1
 This will save one BAM file for each barcode named as
 `run1.mapped.bc_?.bam` where `?` represents the barcode number.
 
+## Dependencies and versions
+
+You'll need CUDA-compatible (Nvidia) GPU and 
+[CUDA v10 or newer installed](https://developer.nvidia.com/cuda-downloads) 
+in your system. 
+
+Additionally, you'll need to install 
+[docker](https://www.docker.com/)
+and 
+[NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). 
+
+Versions tested: 
+| Software    | Version     | 
+| ----------- | ----------- |
+| CUDA        | 10, 11, 12  | 
+| Docker      | 25+         | 
+| Nvidia Container Toolkit | 1.14 | 
 
 ## License Information
 
@@ -142,24 +159,6 @@ Please ensure compliance with each license's terms and conditions.
 ### Patent Information
 
 LPP, GD and EMN have filed patent applications (EP24382340 and EP24383144) based on this work at the European Patent Office. 
-
-## Dependencies and versions
-
-You'll need CUDA-compatible (Nvidia) GPU and 
-[CUDA v10 or newer installed](https://developer.nvidia.com/cuda-downloads) 
-in your system. 
-
-Additionally, you'll need to install 
-[docker](https://www.docker.com/)
-and 
-[NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). 
-
-Versions tested: 
-| Software    | Version     | 
-| ----------- | ----------- |
-| CUDA        | 10, 11, 12  | 
-| Docker      | 25+         | 
-| Nvidia Container Toolkit | 1.14 | 
 
 ## Citation
 If you found this work helpful, please cite:
