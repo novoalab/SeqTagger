@@ -124,14 +124,12 @@ This will save one BAM file for each barcode named as
 
 ## License Information
 
-Seqtagger basecalling module is based on code from bonito (<https://github.com/nanoporetech/bonito>), version 0.5.3. This module also uses code from ont_fast5_api (<https://github.com/nanoporetech/ont_fast5_api>) and pod5 (<https://github.com/nanoporetech/pod5>). The full text of the licenses, including modified code, can be found in the `bonito` directory.
-
-This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0), available [here](https://creativecommons.org/licenses/by-nc/4.0/legalcode), with the exception of the `bonito` module, which retains its original license. 
+This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0), available [here](https://creativecommons.org/licenses/by-nc/4.0/legalcode), with the exception of the `bonito` module, which retains its original license. The full text of the licenses, including modified code, can be found in the `bonito` directory.
 
 ### Dependencies Licenses
 
 - **ONT 1.0**: `bonito`
-  - Licensed under the Oxford Nanopore Technologies Public License 1.0. Full license text available at [ONT 1.0 License]([https://www.mozilla.org/en-US/MPL/2.0/](https://github.com/nanoporetech/bonito/blob/master/LICENCE.txt)).
+  - Licensed under the Oxford Nanopore Technologies Public License 1.0. Full license text available at [ONT 1.0 License][https://www.mozilla.org/en-US/MPL/2.0/](https://github.com/nanoporetech/bonito/blob/master/LICENCE.txt).
 - **MPL 2.0**: `pod5`, `ont_fast5_api`
   - Licensed under the Mozilla Public License 2.0. Full license text available at [MPL 2.0 License](https://www.mozilla.org/en-US/MPL/2.0/).
 - **BSD 3-Clause**: `numpy`, `pandas`, `seaborn`, `joblib`, `torch`
