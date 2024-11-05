@@ -121,28 +121,6 @@ seqtagger bam_split_by_barcode.py -i /data/demux/run1.demux.tsv.gz -f /data/run1
 This will save one BAM file for each barcode named as
 `run1.mapped.bc_?.bam` where `?` represents the barcode number.
 
-
-## License Information
-
-This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0), available [here](https://creativecommons.org/licenses/by-nc/4.0/legalcode), with the exception of the `bonito` module, which retains its original license. The full text of the licenses, including modified code, can be found in the `bonito` directory.
-
-### Dependencies Licenses
-
-- **ONT 1.0**: `bonito`
-  - Licensed under the Oxford Nanopore Technologies Public License 1.0. Full license text available at [ONT 1.0 License](https://github.com/nanoporetech/bonito/blob/master/LICENCE.txt).
-- **MPL 2.0**: `pod5`, `ont_fast5_api`
-  - Licensed under the Mozilla Public License 2.0. Full license text available at [MPL 2.0 License](https://www.mozilla.org/en-US/MPL/2.0/).
-- **BSD 3-Clause**: `pandas`, `seaborn`, `joblib`, `torch`
-  - Licensed under the BSD 3-Clause License. Full license text available at [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause).
-- **MIT**: `mappy`, `pysam`, `numpy`
-  - Licensed under the MIT License. Full license text available at [MIT License](https://opensource.org/licenses/MIT).
-
-Please ensure compliance with each license's terms and conditions.
-
-### Patent Information
-
-LPP, GD and EMN have filed patent applications (EP24382340 and EP24383144) based on this work at the European Patent Office. 
-
 ## Dependencies and versions
 
 You'll need CUDA-compatible (Nvidia) GPU and 
@@ -160,6 +138,27 @@ Versions tested:
 | CUDA        | 10, 11, 12  | 
 | Docker      | 25+         | 
 | Nvidia Container Toolkit | 1.14 | 
+
+## License Information
+
+This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0), available [here](https://creativecommons.org/licenses/by-nc/4.0/legalcode), with the exception of the `bonito` module, which retains its original license. The full text of the licenses, including modified code, can be found in the `bonito` directory.
+
+### License Dependencies
+
+- **ONT 1.0**: `bonito`
+  - Licensed under the Oxford Nanopore Technologies Public License 1.0. Full license text available at [ONT 1.0 License](https://github.com/nanoporetech/bonito/blob/master/LICENCE.txt).
+- **MPL 2.0**: `pod5`, `ont_fast5_api`
+  - Licensed under the Mozilla Public License 2.0. Full license text available at [MPL 2.0 License](https://www.mozilla.org/en-US/MPL/2.0/).
+- **BSD 3-Clause**: `pandas`, `seaborn`, `joblib`, `torch`
+  - Licensed under the BSD 3-Clause License. Full license text available at [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause).
+- **MIT**: `mappy`, `pysam`, `numpy`
+  - Licensed under the MIT License. Full license text available at [MIT License](https://opensource.org/licenses/MIT).
+
+Please ensure compliance with each license's terms and conditions.
+
+### Patent Information
+
+LPP, GD and EMN have filed patent applications (EP24382340 and EP24383144) based on this work at the European Patent Office. 
 
 ## Citation
 If you found this work helpful, please cite:
