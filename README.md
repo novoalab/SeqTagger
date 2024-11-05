@@ -129,7 +129,7 @@ This project is licensed under the Creative Commons Attribution-NonCommercial 4.
 ### Dependencies Licenses
 
 - **ONT 1.0**: `bonito`
-  - Licensed under the Oxford Nanopore Technologies Public License 1.0. Full license text available at [ONT 1.0 License][https://www.mozilla.org/en-US/MPL/2.0/](https://github.com/nanoporetech/bonito/blob/master/LICENCE.txt).
+  - Licensed under the Oxford Nanopore Technologies Public License 1.0. Full license text available at [ONT 1.0 License](https://github.com/nanoporetech/bonito/blob/master/LICENCE.txt).
 - **MPL 2.0**: `pod5`, `ont_fast5_api`
   - Licensed under the Mozilla Public License 2.0. Full license text available at [MPL 2.0 License](https://www.mozilla.org/en-US/MPL/2.0/).
 - **BSD 3-Clause**: `numpy`, `pandas`, `seaborn`, `joblib`, `torch`
