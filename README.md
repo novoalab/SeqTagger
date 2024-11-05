@@ -143,7 +143,7 @@ Versions tested:
 
 This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0), available [here](https://creativecommons.org/licenses/by-nc/4.0/legalcode), with the exception of the `bonito` module, which retains its original license. The full text of the licenses, including modified code, can be found in the `bonito` directory.
 
-### Dependencies Licenses
+### License Dependencies
 
 - **ONT 1.0**: `bonito`
   - Licensed under the Oxford Nanopore Technologies Public License 1.0. Full license text available at [ONT 1.0 License](https://github.com/nanoporetech/bonito/blob/master/LICENCE.txt).
