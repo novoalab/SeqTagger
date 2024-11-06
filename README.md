@@ -149,10 +149,13 @@ This project is licensed under the Creative Commons Attribution-NonCommercial 4.
   - Licensed under the Oxford Nanopore Technologies Public License 1.0. Full license text available at [ONT 1.0 License](https://github.com/nanoporetech/bonito/blob/master/LICENCE.txt).
 - **MPL 2.0**: `pod5`, `ont_fast5_api`
   - Licensed under the Mozilla Public License 2.0. Full license text available at [MPL 2.0 License](https://www.mozilla.org/en-US/MPL/2.0/).
-- **BSD 3-Clause**: `pandas`, `seaborn`, `joblib`, `torch`
+- **BSD 3-Clause**: `pandas`, `seaborn`, `joblib`, 
   - Licensed under the BSD 3-Clause License. Full license text available at [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause).
 - **MIT**: `mappy`, `pysam`, `numpy`
   - Licensed under the MIT License. Full license text available at [MIT License](https://opensource.org/licenses/MIT).
+- **OTHER**: `pytorch`, `numpy`
+  - Full license text for `pytorch` is available at [pytorch License](https://github.com/pytorch/pytorch/blob/main/LICENSE).
+  - Full license text for `numpy` is available at [numpy License](https://numpy.org/doc/stable/license.html).
 
 Please ensure compliance with each license's terms and conditions.
 
