@@ -1,10 +1,10 @@
 # CHANGELOG
 
-## TBD
+## v1.0c
 - multithreading via Process with Queue
-- optimisation of segmentation for RNA004 models: loaded from `config.toml`
-  - updated all models accordingly
-- 
+- support for encrypted models
+- support for new GPUs (pytorch v2.1.2 / cuda v12.1)
+- removed b100_RNA002
 
 ## v1.0b
 - tRNA support via alignment-based segmentation
