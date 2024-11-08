@@ -2,7 +2,7 @@
 ![Docker Pulls](https://img.shields.io/docker/pulls/lpryszcz/seqtagger?logo=docker)
 [![DOI:10.1101/2024.10.29.620808](http://img.shields.io/badge/DOI-10.1101/2024.10.29.620808-blue.svg)](https://doi.org/10.1101/2024.10.29.620808)
 [![X Account](https://img.shields.io/badge/@novoalab-blue?logo=x&logoColor=white&labelColor=555)](https://x.com/novoalab?lang=en)
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 ## Table of Contents
 - [About-SeqTagger](#About-SeqTagger)
@@ -141,7 +141,7 @@ Versions tested:
 
 ## License Information
 
-This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0), available [here](https://creativecommons.org/licenses/by-nc/4.0/legalcode), with the exception of the `bonito` module, which retains its original license. The full text of the licenses, including modified code, can be found in the `bonito` directory.
+This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC-ND 4.0), available [here](https://creativecommons.org/licenses/by-nc-nd/4.0/), with the exception of the `bonito` module, which retains its original license. The full text of the licenses, including modified code, can be found in the `bonito` directory.
 
 ### License Dependencies
 
