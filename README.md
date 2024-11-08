@@ -23,7 +23,7 @@ It's a super-fast and accurate demultiplexing algorithm for direct RNA nanopore 
 Supporting both RNA002 and RNA004 kits,and both fast5 and pod5 files. 
 
 ### How does SeqTagger work? 
-The workflow follows the standard direct RNA sequencing library preparation protocol in which default RT adapters are exchanged for barcode-containg RT adapters. SeqTagger then basecalls the DNA barcode from the direct RNA sequencing data using custom basecalling models. Finally, basecalled barcodes are aligned against the reference sequences for all barcodes and low confidence predicition removed in a filtering step. 
+The workflow follows the standard direct RNA sequencing library preparation protocol in which default RT adapters are exchanged for barcode-containg RT adapters. SeqTagger then basecalls the DNA barcode from the direct RNA sequencing data using custom basecalling models. Finally, basecalled barcodes are aligned against the reference sequences for all barcodes and low confidence predicitions removed in a filtering step. 
 
 ![alt text](./img/workflow.png "SeqTagger_Workflow")
 
