@@ -15,4 +15,4 @@ Currently, SeqTagger supports the following models and barcodes:
 | RNA004 | b04_RNA004 |  [b04_RNA004_barcodes](/models/b04_RNA002/barcodes.tsv)|
 
 
-Please note: **tRNA** models for **RNA004** chemistry (up to 7 barcodes) are available via [Immagina Biotechology](https://www.immaginabiotech.com/product/nano-trnaseq).
+Please note: **tRNA** models for **RNA004** chemistry (up to 7 barcodes) are available via [Immagina Biotechology](https://www.immaginabiotech.com/nano-trnaseq-kit/ntrsq-12).
