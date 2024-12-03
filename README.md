@@ -78,7 +78,7 @@ In addition, boxplots of per-barcode quality will be saved in corresponding dire
 ending with `.boxplot.pdf`. 
 
 **Please note**:
-You can now also run SeqTagger through the [MasterOfPores3](https://github.com/biocorecrg/MoP3/tree/master) nextflow workflow. 
+You can now also run SeqTagger through the [MasterOfPores3](https://github.com/biocorecrg/master_of_pores) nextflow workflow. 
 
 ### Split reads by barcode
 
