@@ -32,7 +32,7 @@ The workflow follows the standard direct RNA sequencing library preparation prot
 Currently, SeqTagger supports the following models and barcodes:
 
 | Chemistry | Number of barcodes | SeqTagger Model | Barcode Sequences | 
-| -----------| ----------- | ----------- |----------- |
+| :------:| :------: | :------: | :------: |
 | RNA002 | 4 | b04_RNA002 | [b04_RNA002_barcodes](/models/b04_RNA002/barcodes.tsv)|
 | RNA002 | 96 | b96_RNA002 | [b96_RNA002_barcodes](/models/b96_RNA002/barcodes.tsv)|
 | RNA004 | 4 | b04_RNA004 |  [b04_RNA004_barcodes](/models/b04_RNA002/barcodes.tsv)|
