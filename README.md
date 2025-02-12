@@ -167,5 +167,5 @@ LPP, GD and EMN have filed patent applications (EP24382340 and EP24383144) based
 If you found this work helpful, please cite:
 
 Pryszcz LP*, Diensthuber G*, Llovera L,  Medina R, Delgado-Tejedor A, Cozzuto L, Ponomarenko J and Novoa EM#.
-(**SeqTagger, a rapid and accurate tool to demultiplex direct RNA nanopore sequencing datasets**)[https://genome.cshlp.org/content/early/2025/01/29/gr.279290.124.full.pdf]. Genome Research 2025 
+[**SeqTagger, a rapid and accurate tool to demultiplex direct RNA nanopore sequencing datasets**](https://genome.cshlp.org/content/early/2025/01/29/gr.279290.124.full.pdf). Genome Research 2025 
 
