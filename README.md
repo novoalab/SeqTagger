@@ -20,7 +20,7 @@
 
 ### What is SeqTagger? 
 It's a super-fast and accurate demultiplexing algorithm for direct RNA nanopore sequencing datasets.
-Supporting both RNA002 and RNA004 kits,and both fast5 and pod5 files. 
+Supporting both RNA002 and RNA004 kits, and both fast5 and pod5 files. 
 
 ### How does SeqTagger work? 
 The workflow follows the standard direct RNA sequencing library preparation protocol in which default RT adapters are exchanged for barcode-containg RT adapters. SeqTagger then basecalls the DNA barcode from the direct RNA sequencing data using custom basecalling models. Finally, basecalled barcodes are aligned against the reference sequences for all barcodes and low confidence predicitions removed in a filtering step. 
@@ -39,7 +39,7 @@ Currently, SeqTagger supports the following models and barcodes:
 | RNA004 | 96 | b96_RNA004 | [b96_RNA004_barcodes](/models/b96_RNA004/barcodes.tsv)|
 
 
-**Please note:** These models do not work well on Nano-tRNAseq libraries. You can find pre-trained **tRNA** demultiplexing models [here](/models).
+**Please note:** The barcode sequences used for b04 and b96 are identical between the two chemistries RNA002 and RNA004.
 
 
 ### Does it work on all RNA types?
@@ -121,6 +121,20 @@ seqtagger bam_split_by_barcode.py -i /data/demux/run1.demux.tsv.gz -f /data/run1
 
 This will save one BAM file for each barcode named as
 `run1.mapped.bc_?.bam` where `?` represents the barcode number.
+
+## Benchmarking of b96_RNA004
+
+The confusion matrix below illustrates performance of the b96_RNA004 model on the holdout dataset, reaching >0.99 precision (recall = 1):
+
+![alt text](./img/cm_b96_RNA004.png "cm_b96_RNA004")
+
+We further tested b96_RNA004 by performing a dropout test in which three randomly chosen barcodes were skipped during library generation (SCBC-21, SCBC-59, and SCBC-88).
+This yielded an average cross-contamination rate per barcode of less than 0.00002% of the total library (**A**). We further compared the runtime of b04_RNA004 to that of the
+larger b96_RNA004 model and observed no signficant differences (**B**).
+
+**Please note**: This performance was obtained on a network filesystem, substantially faster times can be achieved on a local SSD or HDD.
+
+![alt text](./img/indep_test_and_realtime.png "cm_b96_RNA004")
 
 ## Dependencies and versions
 
