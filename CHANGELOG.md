@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.0d
+- new demux models:
+  - mRNA: b96_RNA004
+
 ## v1.0c
 - multithreading via Process with Queue
 - support for encrypted models
