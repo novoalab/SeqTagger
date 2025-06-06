@@ -134,7 +134,7 @@ larger b96_RNA004 model and observed no signficant differences (**B**).
 
 **Please note**: This performance was obtained on a network filesystem, substantially faster times can be achieved on a local SSD or HDD.
 
-![alt text](./img/indep_test_and_realtime.png "indep_test_and_realtime.png")
+![alt text](./img/indep_test_and_realtime_v2.png "indep_test_and_realtime_v2")
 
 ## Dependencies and versions
 
