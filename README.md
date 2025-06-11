@@ -12,6 +12,7 @@
   - [Does it work on all RNA types?](#Does-it-work-on-all-RNA-types)
 - [Running SeqTagger](#Running-SeqTagger)
   - [Split reads by barcode](#Split-reads-by-barcode)
+- [Benchmarking of b96_RNA004](#Benchmarking-of-b96_RNA004)
 - [Dependencies and versions](#Dependencies-and-versions)
 - [License Information](#License-information)
 - [Citation](#Citation)
