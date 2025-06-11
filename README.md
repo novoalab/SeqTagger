@@ -1,6 +1,6 @@
 ![alt text](./img/logo.png "SeqTagger")
 ![Docker Pulls](https://img.shields.io/docker/pulls/lpryszcz/seqtagger?logo=docker)
-[![DOI:10.1101/2024.10.29.620808](http://img.shields.io/badge/DOI-10.1101/2024.10.29.620808-blue.svg)](https://doi.org/10.1101/2024.10.29.620808)
+[![DOI:10.1101/gr.279290.124](http://img.shields.io/badge/DOI-110.1101/gr.279290.124-blue.svg)](https://doi.org/10.1101/gr.279290.124)
 [![X Account](https://img.shields.io/badge/@novoalab-blue?logo=x&logoColor=white&labelColor=555)](https://x.com/novoalab?lang=en)
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
