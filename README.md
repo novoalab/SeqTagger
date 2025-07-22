@@ -141,7 +141,8 @@ larger b96_RNA004 model and observed no signficant differences (**B**).
 
 You'll need CUDA-compatible (Nvidia) GPU and 
 [CUDA v10 or newer installed](https://developer.nvidia.com/cuda-downloads) 
-in your system. 
+in your system supporting **half-precision (float16)**. 
+All Nvidia GPUs released from 2019 onward should work without any issues. 
 
 Additionally, you'll need to install 
 [docker](https://www.docker.com/)
