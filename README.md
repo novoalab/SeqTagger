@@ -21,7 +21,7 @@
 
 ### What is SeqTagger? 
 It's a super-fast and accurate demultiplexing algorithm for direct RNA nanopore sequencing datasets.
-Supporting both RNA002 and RNA004 kits, and both fast5 and pod5 files. 
+It supports the current sequencing chemistry (SQK-RNA004), and the depcracated chemistry (SQK-RNA002). Moreover, both standard file formats for nanopore sequencing data (pod5 and fast5) are supported.
 
 ### How does SeqTagger work? 
 The workflow follows the standard direct RNA sequencing library preparation protocol in which default RT adapters are exchanged for barcode-containg RT adapters. SeqTagger then basecalls the DNA barcode from the direct RNA sequencing data using custom basecalling models. Finally, basecalled barcodes are aligned against the reference sequences for all barcodes and low confidence predicitions removed in a filtering step. 
@@ -34,13 +34,13 @@ Currently, SeqTagger supports the following models and barcodes:
 
 | Chemistry | Number of barcodes | SeqTagger Model | Barcode Sequences | 
 | :------:| :------: | :------: | :------: |
-| RNA002 | 4 | b04_RNA002 | [b04_RNA002_barcodes](/models/b04_RNA002/barcodes.tsv)|
-| RNA002 | 96 | b96_RNA002 | [b96_RNA002_barcodes](/models/b96_RNA002/barcodes.tsv)|
-| RNA004 | 4 | b04_RNA004 |  [b04_RNA004_barcodes](/models/b04_RNA004/barcodes.tsv)|
-| RNA004 | 96 | b96_RNA004 | [b96_RNA004_barcodes](/models/b96_RNA004/barcodes.tsv)|
+| SQK-RNA002 | 4 | b04_RNA002 | [b04_RNA002_barcodes](/models/b04_RNA002/barcodes.tsv)|
+| SQK-RNA002 | 96 | b96_RNA002 | [b96_RNA002_barcodes](/models/b96_RNA002/barcodes.tsv)|
+| SQK-RNA004 | 4 | b04_RNA004 |  [b04_RNA004_barcodes](/models/b04_RNA004/barcodes.tsv)|
+| SQK-RNA004 | 96 | b96_RNA004 | [b96_RNA004_barcodes](/models/b96_RNA004/barcodes.tsv)|
 
 
-**Please note:** The barcode sequences used for b04 and b96 are identical between the two chemistries RNA002 and RNA004.
+**Please note:** The barcode sequences used for the b04 and b96 model are identical between the two chemistries SQK-RNA004 and SQK-RNA002.
 
 
 ### Does it work on all RNA types?
@@ -51,7 +51,7 @@ Yes, as long as the RNA molecule has a poly(A) tail (e.g. mRNAs, lncRNAs, etc.) 
 
 ## Running SeqTagger
 
-Download test data for both RNA002 and RNA004:
+Download test data for both SQK-RNA004 and SQK-RNA002:
 
 ```bash
 mkdir -p seqtagger; cd seqtagger
