@@ -1,3 +1,5 @@
+# Description
+
 ## Table of Contents
 - [About-SeqTagger](#About-SeqTagger)
   - [What is SeqTagger?](#What-is-SeqTagger)
@@ -40,12 +42,13 @@ but may fail for reads with no, short or non-standard tails.
 
 #### v2
 
-SeqTagger v2 basecalls every read several times using rolling-window approach
-and selects a window with the highest mean basecalling quality (baseQ) 
-as actual barcode signal. 
-Basecalled sequence of the window with highest baseQ is then aligned to expected barcode sequences
-and best match is reported. 
+SeqTagger v2 first standarises read signal 
+and basecalls every read several times using rolling-window approach. 
+Basecalled sequence of the window with with the highest mean basecalling quality (baseQ) 
+is aligned to expected barcode sequences and best match is reported. 
 
+SeqTagger v2 handles better reads with non-standard tails (no, short or non-standard tail), 
+but it is 3-6x slower than v1, because every read is basecalled several times. 
 
 ### How many barcodes are supported?
 Currently, SeqTagger supports the following models and barcodes:

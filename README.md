@@ -28,10 +28,10 @@ docker run --gpus all -u $UID:$GID -v `pwd`:/data lpryszcz/seqtagger ls -lah mod
 ```
 
 You can find more information about
-- [How does SeqTagger work?](docs/details.md#How-does-SeqTagger-work)
-- [How many barcodes are supported?](docs/details.md#How-many-barcodes-are-supported)
-- [Running SeqTagger](docs/details.md#Running-SeqTagger)
-- [Benchmarking of b96_RNA004](docs/details.md#Benchmarking-of-b96_RNA004)
+- [How does SeqTagger work?](docs/DESCRIPTION.md#How-does-SeqTagger-work)
+- [How many barcodes are supported?](docs/DESCRIPTION.md#How-many-barcodes-are-supported)
+- [Running SeqTagger](docs/DESCRIPTION.md#Running-SeqTagger)
+- [Benchmarking of b96_RNA004](docs/DESCRIPTION.md#Benchmarking-of-b96_RNA004)
 
 ## Dependencies and versions
 

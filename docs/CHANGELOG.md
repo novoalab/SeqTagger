@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## v2.1
+
+- major upgrade
+  - signal standarisation instead of medmad normalisation
+  - rolling-window classification
+  - v1 models are supported by v1 codebase - results should be identical to running SeqTagger v1
+- new demux models:
+  - mRNA: b13_RNA004
+  - tRNA: b07_RNA004_tRNA
+
 ## v1.0d
 - new demux models:
   - mRNA: b96_RNA004
