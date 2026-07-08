@@ -58,12 +58,12 @@ Currently, SeqTagger supports the following models and barcodes:
 
 | SeqTagger version | Chemistry | Number of barcodes | SeqTagger Model | Barcode Sequences | 
 | :------: | :------: | :------: | :------: | :------: |
-| 1 | SQK-RNA002 | 4 | b04_RNA002 | [b04_RNA002_barcodes](/models/b04_RNA002/barcodes.tsv)|
-| 1 | SQK-RNA002 | 96 | b96_RNA002 | [b96_RNA002_barcodes](/models/b96_RNA002/barcodes.tsv)|
-| 1 | SQK-RNA004 | 4 | b04_RNA004 |  [b04_RNA004_barcodes](/models/b04_RNA004/barcodes.tsv)|
-| 1 | SQK-RNA004 | 96 | b96_RNA004 | [b96_RNA004_barcodes](/models/b96_RNA004/barcodes.tsv)|
-| 2 | SQK-RNA004 | 7 | b07_RNA004_tRNA | [b07_RNA004_tRNA_barcodes](/models/b07_RNA004_tRNA/barcodes.tsv)|
-| 2 | SQK-RNA004 | 13 | b13_RNA004_mRNA | [b13_RNA004_mRNA_barcodes](/models/b13_RNA004_mRNA/barcodes.tsv)|
+| 1 | SQK-RNA002 | 4 | b04_RNA002 | [b04_RNA002_barcodes](/models/v1/b04_RNA002/barcodes.tsv)|
+| 1 | SQK-RNA002 | 96 | b96_RNA002 | [b96_RNA002_barcodes](/models/v1/b96_RNA002/barcodes.tsv)|
+| 1 | SQK-RNA004 | 4 | b04_RNA004 |  [b04_RNA004_barcodes](/models/v1/b04_RNA004/barcodes.tsv)|
+| 1 | SQK-RNA004 | 96 | b96_RNA004 | [b96_RNA004_barcodes](/models/v1/b96_RNA004/barcodes.tsv)|
+| 2 | SQK-RNA004 | 7 | b07_RNA004_tRNA | [b07_RNA004_tRNA_barcodes](/models/v2/b07_RNA004_tRNA/barcodes.tsv)|
+| 2 | SQK-RNA004 | 13 | b13_RNA004_mRNA | [b13_RNA004_mRNA_barcodes](/models/v2/b13_RNA004_mRNA/barcodes.tsv)|
 
 **Please note:** 
 - The barcode sequences used for the b04 and b96 model are identical between the two chemistries SQK-RNA004 and SQK-RNA002.
