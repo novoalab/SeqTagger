@@ -4,14 +4,6 @@
 [![X Account](https://img.shields.io/badge/@novoalab-blue?logo=x&logoColor=white&labelColor=555)](https://x.com/novoalab?lang=en)
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-## Table of Contents
-- [About-SeqTagger](#About-SeqTagger)
-- [Running SeqTagger](#Running-SeqTagger)
-- [Dependencies and versions](#Dependencies-and-versions)
-- [License Information](#License-information)
-- [Citation](#Citation)
-
-
 SeqTagger is a super-fast and accurate demultiplexing algorithm for direct RNA nanopore sequencing datasets.
 It supports the current sequencing chemistry (SQK-RNA004), and the deprecated chemistry (SQK-RNA002). 
 SeqTagger expects reads in standard nanopore sequencing data format (pod5 or fast5). 

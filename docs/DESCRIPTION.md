@@ -9,6 +9,9 @@
 - [Running SeqTagger](#Running-SeqTagger)
   - [Split reads by barcode](#Split-reads-by-barcode)
 - [Benchmarking of b96_RNA004](#Benchmarking-of-b96_RNA004)
+- [Dependencies and versions](#Dependencies-and-versions)
+- [License Information](#License-information)
+- [Citation](#Citation)
 
 ## About SeqTagger
 
@@ -62,14 +65,16 @@ Currently, SeqTagger supports the following models and barcodes:
 | 2 | SQK-RNA004 | 7 | b07_RNA004_tRNA | [b07_RNA004_tRNA_barcodes](/models/b07_RNA004_tRNA/barcodes.tsv)|
 | 2 | SQK-RNA004 | 13 | b13_RNA004_mRNA | [b13_RNA004_mRNA_barcodes](/models/b13_RNA004_mRNA/barcodes.tsv)|
 
-**Please note:** The barcode sequences used for the b04 and b96 model are identical between the two chemistries SQK-RNA004 and SQK-RNA002.
-
+**Please note:** 
+- The barcode sequences used for the b04 and b96 model are identical between the two chemistries SQK-RNA004 and SQK-RNA002.
+- tRNA model (`b07_RNA004_tRNA`) is a courtesy of [Immagina Biotechology](https://www.immaginabiotech.com/nano-trnaseq-kit/ntrsq-1). which currently offering [upgraded 12-barcode kit](https://www.immaginabiotech.com/nano-trnaseq-pro-kit/ntpro-12)
+- `b96` models are known to cause issues with poly(A)-tail length estimation, therefore `b13_RNA004_mRNA` is recommended for mRNA experiments in which poly(A)-tail estimation is important. 
 
 ### Does it work on all RNA types?
-Yes, as long as the RNA molecule has a poly(A) tail (e.g. mRNAs, lncRNAs, etc.) or you have in vitro polyadenylated the sample prior to sequencing.
 
-**Please note**: Nano-tRNAseq libraries do not have standard poly(A) RNA tails, and thus should not be used with the models listed above. You can find SeqTagger Dockerfiles with pre-trained **tRNA** demultiplexing models [here](https://www.immaginabiotech.com/nano-trnaseq-kit/ntrsq-12) (also available for **RNA004** chemistries).
+SeqTagger v1 will work as long as the RNA molecule has a poly(A) tail (e.g. mRNAs, lncRNAs, etc.) or you have in vitro polyadenylated the sample prior to sequencing.
 
+SeqTagger v2 should deal better with no, short and non-standard poly(A) tails. 
 
 ## Running SeqTagger
 
@@ -149,7 +154,7 @@ This will save one BAM file for each barcode named as
 
 The confusion matrix below illustrates performance of the b96_RNA004 model on the holdout dataset, reaching >0.99 precision (recall = 1):
 
-![alt text](./img/cm_b96_RNA004.png "cm_b96_RNA004")
+![alt text](/img/cm_b96_RNA004.png "cm_b96_RNA004")
 
 We further tested b96_RNA004 by performing a dropout test in which three randomly chosen barcodes were skipped during library generation (SCBC-21, SCBC-59, and SCBC-88).
 This yielded an average cross-contamination rate per barcode of less than 0.00002% of the total library (**A**). We further compared the runtime of b04_RNA004 to that of the
@@ -157,5 +162,57 @@ larger b96_RNA004 model and observed no signficant differences (**B**).
 
 **Please note**: This performance was obtained on a network filesystem, substantially faster times can be achieved on a local SSD or HDD.
 
-![alt text](./img/indep_test_and_realtime_v2.png "indep_test_and_realtime_v2")
+![alt text](/img/indep_test_and_realtime_v2.png "indep_test_and_realtime_v2")
 
+## Dependencies and versions
+
+You'll need CUDA-compatible (Nvidia) GPU and 
+[CUDA v10 or newer installed](https://developer.nvidia.com/cuda-downloads) 
+in your system supporting **half-precision (float16)**. 
+All Nvidia GPUs released from 2019 onward should work without any issues. 
+
+Additionally, you'll need to install 
+[docker](https://www.docker.com/)
+and 
+[NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). 
+
+Versions tested: 
+| Software    | Version     | 
+| ----------- | ----------- |
+| CUDA        | 10, 11, 12  | 
+| Docker      | 25+         | 
+| Nvidia Container Toolkit | 1.14 | 
+
+## License Information
+
+This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC-ND 4.0), 
+available [here](https://creativecommons.org/licenses/by-nc-nd/4.0/), 
+with the exception of the `bonito` module, which retains its original license. 
+The full text of the licenses, including modified code, can be found in the `bonito` directory.
+
+### License Dependencies
+
+- **ONT 1.0**: `bonito`
+  - Licensed under the Oxford Nanopore Technologies Public License 1.0. Full license text available at [ONT 1.0 License](https://github.com/nanoporetech/bonito/blob/master/LICENCE.txt).
+- **MPL 2.0**: `pod5`, `ont_fast5_api`
+  - Licensed under the Mozilla Public License 2.0. Full license text available at [MPL 2.0 License](https://www.mozilla.org/en-US/MPL/2.0/).
+- **BSD 3-Clause**: `pandas`, `seaborn`, `joblib`, 
+  - Licensed under the BSD 3-Clause License. Full license text available at [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause).
+- **MIT**: `mappy`, `pysam`, `numpy`
+  - Licensed under the MIT License. Full license text available at [MIT License](https://opensource.org/licenses/MIT).
+- **OTHER**: `pytorch`, `numpy`
+  - Full license text for `pytorch` is available at [pytorch License](https://github.com/pytorch/pytorch/blob/main/LICENSE).
+  - Full license text for `numpy` is available at [numpy License](https://numpy.org/doc/stable/license.html).
+
+Please ensure compliance with each license's terms and conditions.
+
+### Patent Information
+
+LPP, GD and EMN have filed patent applications (EP24382340 and EP24383144) based on this work at the European Patent Office. 
+
+## Citation
+If you found this work helpful, please cite:
+
+Pryszcz LP*, Diensthuber G*, Llovera L,  Medina R, Delgado-Tejedor A, Cozzuto L, Ponomarenko J and Novoa EM#.
+[**Rapid and accurate demultiplexing of
+direct RNA nanopore sequencing datasets with SeqTagger**](https://genome.cshlp.org/content/early/2025/01/29/gr.279290.124.full.pdf). Genome Research 2025 
