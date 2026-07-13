@@ -30,7 +30,7 @@ overlap = 500
 #v1.1+
 max_chunksize = 6000
 step = 500
-min_baseQ = 60 # 60: 0.999 @ 0.952; 50: 0.997 @ 0.969 
+min_baseQ = 50
 
 [standardisation]
 standardise = 1
