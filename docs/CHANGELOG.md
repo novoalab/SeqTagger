@@ -7,7 +7,7 @@
   - rolling-window classification
   - v1 models are supported by v1 codebase - results should be identical to running SeqTagger v1
 - new demux models:
-  - mRNA: b13_RNA004
+  - mRNA: b13_RNA004_mRNA
   - tRNA: b07_RNA004_tRNA
 
 ## v1.0d
