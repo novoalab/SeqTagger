@@ -16,6 +16,7 @@
 ## About SeqTagger
 
 ### What is SeqTagger? 
+
 It's a super-fast and accurate demultiplexing algorithm for direct RNA nanopore sequencing datasets.
 It supports the current sequencing chemistry (SQK-RNA004), and the depcracated chemistry (SQK-RNA002). 
 Moreover, both standard file formats for nanopore sequencing data (pod5 and fast5) are supported.
@@ -50,10 +51,13 @@ and basecalls every read several times using rolling-window approach.
 Basecalled sequence of the window with with the highest mean basecalling quality (baseQ) 
 is aligned to expected barcode sequences and best match is reported. 
 
+<!--
 SeqTagger v2 handles better reads with non-standard tails (no, short or non-standard tail), 
 but it is 3-6x slower than v1, because every read is basecalled several times. 
+-->
 
 ### How many barcodes are supported?
+
 Currently, SeqTagger supports the following models and barcodes:
 
 | SeqTagger version | Chemistry | Number of barcodes | SeqTagger Model | Barcode Sequences | 
@@ -68,13 +72,19 @@ Currently, SeqTagger supports the following models and barcodes:
 **Please note:** 
 - The barcode sequences used for the b04 and b96 model are identical between the two chemistries SQK-RNA004 and SQK-RNA002.
 - tRNA model (`b07_RNA004_tRNA`) is a courtesy of [Immagina Biotechology](https://www.immaginabiotech.com/nano-trnaseq-kit/ntrsq-1), currently offering [upgraded 12-barcode kit](https://www.immaginabiotech.com/nano-trnaseq-pro-kit/ntpro-12)
-- `b96` models are known to cause issues with poly(A)-tail length estimation, therefore `b13_RNA004_mRNA` is recommended for mRNA experiments in which poly(A)-tail estimation is important. 
+- Some of `b96` barcodes are known to cause issues with poly(A)-tail length estimation, therefore `b13_RNA004_mRNA` is recommended for experiments in which poly(A)-tail estimation is important. 
 
 ### Does it work on all RNA types?
 
-SeqTagger v1 will work as long as the RNA molecule has a poly(A) tail (e.g. mRNAs, lncRNAs, etc.) or you have in vitro polyadenylated the sample prior to sequencing.
+SeqTagger works well with RNA molecule containing a poly(A) tail (e.g. mRNAs, lncRNAs, etc.) 
+or if the sample was in vitro polyadenylated prior to sequencing.
 
+In additiona, models containg `_tRNA` in their name natively support demultiplexing of 
+[Nano-tRNAseq libraries](https://www.nature.com/articles/s41587-023-01743-6). 
+
+<!--
 SeqTagger v2 should deal better with no, short and non-standard poly(A) tails. 
+-->
 
 ## Running SeqTagger
 
@@ -211,8 +221,9 @@ Please ensure compliance with each license's terms and conditions.
 LPP, GD and EMN have filed patent applications (EP24382340 and EP24383144) based on this work at the European Patent Office. 
 
 ## Citation
+
 If you found this work helpful, please cite:
 
-Pryszcz LP*, Diensthuber G*, Llovera L,  Medina R, Delgado-Tejedor A, Cozzuto L, Ponomarenko J and Novoa EM#.
-[**Rapid and accurate demultiplexing of
-direct RNA nanopore sequencing datasets with SeqTagger**](https://genome.cshlp.org/content/early/2025/01/29/gr.279290.124.full.pdf). Genome Research 2025 
+Pryszcz LP*#, Diensthuber G*, Llovera L,  Medina R, Delgado-Tejedor A, Cozzuto L, Ponomarenko J and Novoa EM#.
+[**Rapid and accurate demultiplexing of direct RNA nanopore sequencing datasets with SeqTagger**](https://doi.org/10.1101/gr.279290.124). 
+Genome Research 2025 
