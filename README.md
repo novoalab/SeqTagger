@@ -19,7 +19,7 @@ You can see available demultiplexing models by executing
 docker run --gpus all -u $UID:$GID -v `pwd`:/data lpryszcz/seqtagger ls -lah models
 ```
 
-You can find more information about
+For more details see [docs/DESCRIPTION.md](docs/DESCRIPTION.md), for example: 
 - [How does SeqTagger work?](docs/DESCRIPTION.md#How-does-SeqTagger-work)
 - [How many barcodes are supported?](docs/DESCRIPTION.md#How-many-barcodes-are-supported)
 - [Running SeqTagger](docs/DESCRIPTION.md#Running-SeqTagger)
