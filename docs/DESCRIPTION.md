@@ -96,17 +96,11 @@ wget https://public-docs.crg.es/enovoa/public/seqtagger/test_data/ \
   -q --show-progress -r -c -nc -np -nH --cut-dirs=3 --reject="index.html*"
 ```
 
-It's handy to define an alias prior to using `seqtagger`:
+Running SeqTagger is as easy as:
 
 ```bash
-alias seqtagger="docker run --gpus all -u $UID:$GID -v `pwd`:/data lpryszcz/seqtagger"
-```
-This will bind your current directory to `/data` in the docker container.
-
-Then, running it is as easy as:
-
-```bash
-seqtagger run -k models/b04_RNA004 -r -i /data/test_data/RNA004 -o /data/demux
+docker run --gpus all -u $UID:$GID -v `pwd`:/data lpryszcz/seqtagger \
+  run -k models/b04_RNA004 -r -i /data/test_data/RNA004 -o /data/demux
 ```
 Note, you can provide multiple input directories with fast5/pod5 files after `-i`. 
 
@@ -117,7 +111,7 @@ In addition, boxplots of per-barcode quality will be saved in corresponding dire
 ending with `.boxplot.pdf`. 
 
 **Please note**:
-You can now also run SeqTagger through the [MasterOfPores3](https://github.com/biocorecrg/master_of_pores) nextflow workflow. 
+You can now also run SeqTagger through the [MasterOfPores](https://github.com/biocorecrg/master_of_pores) nextflow workflow. 
 
 ### Split reads by barcode
 
@@ -126,7 +120,8 @@ You can now also run SeqTagger through the [MasterOfPores3](https://github.com/b
 If you wish to split Fast5 file(s) by barcode, execute:
 
 ```bash
-seqtagger fast5_split_by_barcode.py -b 50 -i /data/demux/RNA004.demux.tsv.gz \
+docker run -u $UID:$GID -v `pwd`:/data lpryszcz/seqtagger \
+  fast5_split_by_barcode.py -b 50 -i /data/demux/RNA004.demux.tsv.gz \
   -f /data/test_data/RNA004 -o /data/demux/RNA004 
 ```
 
@@ -142,7 +137,8 @@ If you wish to split FastQ file(s) by barcode:
 # first concatenate all FastQ file into one
 cat guppy/run1/*.fastq.gz > guppy/run1.fastq.gz
 # and split reads using baseQ cut-off of 50
-seqtagger fastq_split_by_barcode.py -b 50 -o /data/demux/run1 -i /data/demux/run1.demux.tsv.gz -f /data/guppy/run1.fastq.gz
+docker run -u $UID:$GID -v `pwd`:/data lpryszcz/seqtagger \
+  fastq_split_by_barcode.py -b 50 -o /data/demux/run1 -i /data/demux/run1.demux.tsv.gz -f /data/guppy/run1.fastq.gz
 ```
 
 This will save one FastQ file for each barcode named as
@@ -154,7 +150,8 @@ We don't provide BAM example in the test_data.
 If you wish to split BAM file(s) by barcode:
 
 ```bash
-seqtagger bam_split_by_barcode.py -i /data/demux/run1.demux.tsv.gz -f /data/run1.mapped.bam -o /data/run1.mapped
+docker run -u $UID:$GID -v `pwd`:/data lpryszcz/seqtagger \
+  bam_split_by_barcode.py -i /data/demux/run1.demux.tsv.gz -f /data/run1.mapped.bam -o /data/run1.mapped
 ```
 
 This will save one BAM file for each barcode named as
