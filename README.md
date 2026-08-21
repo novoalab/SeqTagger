@@ -4,6 +4,14 @@
 [![X Account](https://img.shields.io/badge/@novoalab-blue?logo=x&logoColor=white&labelColor=555)](https://x.com/novoalab?lang=en)
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
+## Table of Contents
+- [About SeqTagger](#About-SeqTagger)
+- [Models available](#Models-available)
+- [Dependencies and versions](#Dependencies-and-versions) 
+- [License information](#License-information) 
+- [Citation](#Citation) 
+
+## About SeqTagger 
 SeqTagger is a super-fast and accurate demultiplexing algorithm for direct RNA nanopore sequencing datasets.
 It supports the current sequencing chemistry (SQK-RNA004), and the deprecated chemistry (SQK-RNA002). 
 SeqTagger expects reads in standard nanopore sequencing data format (pod5 or fast5). 
@@ -26,25 +34,6 @@ For more details see [docs/DESCRIPTION.md](docs/DESCRIPTION.md), for example:
 - [Benchmarking of b96_RNA004](docs/DESCRIPTION.md#Benchmarking-of-b96_RNA004)
 - [Available models](https://github.com/novoalab/SeqTagger/tree/main/models)
 
-## Dependencies and versions
-
-You'll need CUDA-compatible (Nvidia) GPU and 
-[CUDA v10 or newer installed](https://developer.nvidia.com/cuda-downloads) 
-in your system supporting **half-precision (float16)**. 
-All Nvidia GPUs released from 2019 onward should work without any issues. 
-
-Additionally, you'll need to install 
-[docker](https://www.docker.com/)
-and 
-[NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). 
-
-Versions tested: 
-| Software    | Version     | 
-| ----------- | ----------- |
-| CUDA        | 10, 11, 12  | 
-| Docker      | 25+         | 
-| Nvidia Container Toolkit | 1.14 | 
-
 ## Models available
 
 Please note that trained models are back-compatible. If you use SeqTagger v2+, all previous models (v1) and latest models (v2) will work.
@@ -65,7 +54,7 @@ If you're still interested in demuxing RNA002 runs:
 |||96	|b96_RNA002|
 ||tRNA|	4|	b04_RNA002_tRNA|
 
-## Barcode sets
+### Barcode sets
 
 Please note, barcode sets change depending on the model:
 
@@ -77,6 +66,26 @@ Barcode 1: GGCTTCTTCTTGCTCTTAGG Barcode 2: GTGATTCTCGTCTTTCTGCG Barcode 3: GTACT
 
 ** c) b07 models (b07_RNA004_tRNA) are using a mix of 20nt and 37nt barcodes listed HERE.
 
+## Dependencies and versions
+
+You'll need CUDA-compatible (Nvidia) GPU and 
+[CUDA v10 or newer installed](https://developer.nvidia.com/cuda-downloads) 
+in your system supporting **half-precision (float16)**. 
+All Nvidia GPUs released from 2019 onward should work without any issues. 
+
+Additionally, you'll need to install 
+[docker](https://www.docker.com/)
+and 
+[NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). 
+
+Versions tested: 
+| Software    | Version     | 
+| ----------- | ----------- |
+| CUDA        | 10, 11, 12  | 
+| Docker      | 25+         | 
+| Nvidia Container Toolkit | 1.14 | 
+
+
 ## License Information
 
 This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC-ND 4.0), 
@@ -84,7 +93,7 @@ available [here](https://creativecommons.org/licenses/by-nc-nd/4.0/),
 with the exception of the `bonito` module, which retains its original license. 
 The full text of the licenses, including modified code, can be found in the `bonito` directory.
 
-### License Dependencies
+License Dependencies:
 
 - **ONT 1.0**: `bonito`
   - Licensed under the Oxford Nanopore Technologies Public License 1.0. Full license text available at [ONT 1.0 License](https://github.com/nanoporetech/bonito/blob/master/LICENCE.txt).
@@ -100,6 +109,9 @@ The full text of the licenses, including modified code, can be found in the `bon
 
 Please ensure compliance with each license's terms and conditions.
 
+LPP, GD and EMN have filed patent applications (EP24382340 and EP24383144) based on this work at the European Patent Office. 
+
+
 ## Citation
 
 If you found this work helpful, please cite:
@@ -109,5 +121,4 @@ Pryszcz LP*#, Diensthuber G*, Llovera L,  Medina R, Delgado-Tejedor A, Cozzuto L
 Genome Research 2025 
 
 
-LPP, GD and EMN have filed patent applications (EP24382340 and EP24383144) based on this work at the European Patent Office. 
 
