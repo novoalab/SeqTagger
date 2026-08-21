@@ -5,7 +5,7 @@ If you use SeqTagger v2+, all previous models (v1) and latest models (v2) will w
 
 | Chemistry |  RNA biotype | Number of barcodes | Model |
 |-----------|-----------|-----------|-----------|
-|RNA004 |  mRNA/rRNA (polyadenylated RNA)   | 4   | b04_RNA004 |
+|RNA004 |  mRNA (or in vitro polyadenylated RNA)   | 4   | b04_RNA004 |
 | |     | 13   | b13_RNA004_mRNA |
 | |   | 96   | b96_RNA004 |
 | |  tRNA   | 7   | b07_RNA004_tRNA |
@@ -14,7 +14,7 @@ If you're still interested in demuxing RNA002 runs:
 
 | Chemistry |  RNA biotype | Number of barcodes | Model |
 |-----------|-----------|-----------|-----------|
-|RNA002 |  mRNA/rRNA (polyadenylated RNA)   | 4   | b04_RNA002 |
+|RNA002 |  mRNA (or in vitro polyadenylated RNA)   | 4   | b04_RNA002 |
 | |     | 96   | b96_RNA002 |
 | |   tRNA  | 4   | b04_RNA002_tRNA |
 
