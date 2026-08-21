@@ -24,6 +24,7 @@ For more details see [docs/DESCRIPTION.md](docs/DESCRIPTION.md), for example:
 - [How many barcodes are supported?](docs/DESCRIPTION.md#How-many-barcodes-are-supported)
 - [Running SeqTagger](docs/DESCRIPTION.md#Running-SeqTagger)
 - [Benchmarking of b96_RNA004](docs/DESCRIPTION.md#Benchmarking-of-b96_RNA004)
+- [Available models](https://github.com/novoalab/SeqTagger/tree/main/models)
 
 ## Dependencies and versions
 
@@ -67,10 +68,6 @@ The full text of the licenses, including modified code, can be found in the `bon
 
 Please ensure compliance with each license's terms and conditions.
 
-### Patent Information
-
-LPP, GD and EMN have filed patent applications (EP24382340 and EP24383144) based on this work at the European Patent Office. 
-
 ## Citation
 
 If you found this work helpful, please cite:
@@ -78,3 +75,7 @@ If you found this work helpful, please cite:
 Pryszcz LP*#, Diensthuber G*, Llovera L,  Medina R, Delgado-Tejedor A, Cozzuto L, Ponomarenko J and Novoa EM#.
 [**Rapid and accurate demultiplexing of direct RNA nanopore sequencing datasets with SeqTagger**](https://doi.org/10.1101/gr.279290.124). 
 Genome Research 2025 
+
+
+LPP, GD and EMN have filed patent applications (EP24382340 and EP24383144) based on this work at the European Patent Office. 
+
