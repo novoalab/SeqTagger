@@ -71,7 +71,6 @@ Currently, SeqTagger supports the following models and barcodes:
 
 **Please note:** 
 - The barcode sequences used for the b04 and b96 model are identical between the two chemistries SQK-RNA004 and SQK-RNA002.
-- tRNA model (`b07_RNA004_tRNA`) is a courtesy of [Immagina Biotechology](https://www.immaginabiotech.com/nano-trnaseq-kit/ntrsq-1), currently offering [upgraded 12-barcode kit](https://www.immaginabiotech.com/nano-trnaseq-pro-kit/ntpro-12)
 - Some of `b96` barcodes are known to cause issues with poly(A)-tail length estimation, therefore `b13_RNA004_mRNA` is recommended for experiments in which poly(A)-tail estimation is important. 
 
 ### Does it work on all RNA types?
