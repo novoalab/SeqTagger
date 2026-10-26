@@ -25,10 +25,10 @@ Please note, barcode sets change depending on the model:
 ** a) **b04 models** (b04_RNA002, b04_RNA004 and b04_RNA002_tRNA) models are demuxing the same 20nt- barcodes as DeePlexiCon, listee [HERE](https://github.com/novoalab/SeqTagger/blob/main/models/v1/b04_RNA002/barcodes.fa). 
 
 
-Barcode 1: GGCTTCTTCTTGCTCTTAGG
-Barcode 2: GTGATTCTCGTCTTTCTGCG
-Barcode 3: GTACTTTTCTCTTTGCGCGG
-Barcode 4: GGTCTTCGCTCGGTCTTATT
+* Barcode 1: GGCTTCTTCTTGCTCTTAGG
+* Barcode 2: GTGATTCTCGTCTTTCTGCG
+* Barcode 3: GTACTTTTCTCTTTGCGCGG
+* Barcode 4: GGTCTTCGCTCGGTCTTATT
 
 ** b) **b96 models** (b96_RNA002 and b96_RNA004) are using the 37-nt barcodes, listed [HERE](https://github.com/novoalab/SeqTagger/blob/main/models/v1/b96_RNA004/barcodes.fa).
 
